@@ -1,0 +1,34 @@
+<div class="topic-new-wrapper" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center">Add Picture</h1>
+        <%= form_for @topic do |f| %>
+          <div class="form-group">
+            <%= f.label :タイトル %>
+            <%= f.text_field :title%>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :サムネイル %>
+            <%= f.file_field :thumbnail%>
+          </div>
+        
+          <div class="form-group">
+            <%= f.label :画像 %>
+            <%= f.file_field :image%>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :記事本文 %>
+            <%= f.text_area :contents, class: 'form-control' %>
+          </div>
+          <% if logged_in? %>
+            <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
+          <% end %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -25,13 +25,11 @@
           <% if logged_in? %>
             <li>
               <%= link_to favorites_index_path do %>
-                <%= image_tag "icons/heart.png" %>
+                <%= image_tag "icons/star-white.png" %>
               <% end %>
             </li>
             <li>
-              <%= link_to new_topic_path do %>
-                <%= image_tag "icons/camera.png" %>
-              <% end %>
+              <%= link_to '記事作成', new_topic_path, class: 'create_new' %>
             </li>
             <li>
               <%= link_to logout_path, method: :delete do %>
@@ -40,14 +38,10 @@
             </li>
           <% else %>
             <li>
-              <%= link_to new_user_path do %>
-                <%= image_tag "icons/register.png" %>
-              <% end %>
+              <%= link_to 'ログイン', login_path,class: 'login user' %>
             </li>
             <li>
-              <%= link_to login_path do %>
-                <%= image_tag "icons/login.png" %>
-              <% end %>
+              <%= link_to '新規登録', new_user_path, class: 'new user' %>
             </li>
           <% end %>
         </ul>

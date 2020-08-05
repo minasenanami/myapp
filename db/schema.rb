@@ -23,8 +23,7 @@ ActiveRecord::Schema.define(version: 2020_08_02_071014) do
 
   create_table "topics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
-    t.string "thumbnail"
-    t.string "image"
+    t.json "image"
     t.text "contents"
     t.bigint "user_id"
     t.datetime "created_at", null: false

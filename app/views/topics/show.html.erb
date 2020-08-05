@@ -1,1 +1,8 @@
 <%= @topic.title %>
+<% if @topic.image? %>
+  <div class="images">
+   <% @topic.image.each do |image| %>
+    <%= image_tag(image.url) %>
+   <% end %> 
+  </div>
+<% end %>

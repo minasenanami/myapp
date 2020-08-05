@@ -21,6 +21,15 @@
         <%= link_to root_path do %>
           <span><%= image_tag "icons/logo.png", class: "navbar-brand" %></span>
         <% end %>
+        
+        <!--検索窓-->
+        <div class="search-window">
+          <%= form_tag(search_path,:method => 'get') do %>
+            <%= text_field_tag :search %>
+            <%= submit_tag '検索', :name => nil %>
+          <% end %>
+        </div>
+        
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li>
@@ -35,6 +44,9 @@
               <%= link_to logout_path, method: :delete do %>
                 <%= image_tag "icons/logout.png" %>
               <% end %>
+            </li>
+            <li>
+              <%= current_user.name %>
             </li>
           <% else %>
             <li>

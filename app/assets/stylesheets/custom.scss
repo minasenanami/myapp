@@ -79,6 +79,7 @@ h1, h2 {
 
 // ナビバーデザイン
 .navbar-transparent {
+  height: 100px;
   margin-bottom: 0px;
   background-color: rgba(0,112,74,1);
   a {
@@ -92,7 +93,6 @@ h1, h2 {
 
   img {
     height: 40px;
-    margin-bottom: 10px;
   }
   
   .user {
@@ -109,6 +109,12 @@ h1, h2 {
     font-size : 17px;
     font-weight: bold;
     letter-spacing: 5px;
+  }
+  
+  .search-window {
+    position: relative;
+    top: 50px;
+    left: 20px;
   }
 }
 
@@ -170,4 +176,17 @@ h1, h2 {
       margin-left: 20px;
     }
   }
+}
+
+// 投稿画面
+.title-field {
+  height: 40px;
+  width: 555px;
+  font-size: 25px;
+}
+
+.contents_field {
+  width: 558px;
+  height: 200px;
+  font-size: 25px;
 }

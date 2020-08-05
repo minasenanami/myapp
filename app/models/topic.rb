@@ -9,4 +9,9 @@ class Topic < ApplicationRecord
   has_many :favorite_users, through: :favorites, source: 'user'
   
   mount_uploader :image, ImageUploader
+  
+  def self.search(search)
+      return Topic.all unless search
+      Topic.where(['title LIKE ?', "%#{search}%"])
+  end
 end

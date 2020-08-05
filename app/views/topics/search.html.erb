@@ -1,0 +1,9 @@
+<ul><% @topics.each do |topic| %>
+  <li>
+    <%= link_to topic.title, topic %>
+    <%= topic.created_at %>
+  </li>
+  <%= link_to "編集",edit_topic_path(topic) %>
+  <%= link_to "削除",topic_path(topic), method: :delete %>
+  <% end %>
+</ul>

@@ -55,8 +55,4 @@ class ImageUploader < CarrierWave::Uploader::Base
     1..30.megabytes
   end
   
-  version :thumb do
-    process :resize_to_limit => [320, 320]
-  end
-  
 end

@@ -4,10 +4,12 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <div class="topic-index-single">
-            <h2 class="topic-author">
-              <%= topic.user.name %>
-            </h2>
-            <%= image_tag topic.image.url %>
+            <p class="topic-title">
+             <%= topic.user.name %>
+            </p>
+            <h3 class="topic-author">
+              <%= link_to topic.title, topic_path(id: topic.id) %>
+            </h3>
             <% if !topic.favorite_users.include?(current_user) %>
               <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
                 <%= image_tag 'icons/star.png', class: 'topic-index-icon' %>

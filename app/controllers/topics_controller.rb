@@ -18,9 +18,18 @@ class TopicsController < ApplicationController
     end
   end
   
+  def search
+    #Viewのformで取得したパラメータをモデルに渡す
+    @topics = Topic.search(params[:search])
+  end
+  
+  def show
+    @topic = Topic.find_by(params[:id])
+  end
+  
   private
   def topic_params
-    params.require(:topic).permit(:title, :thumbnail, :image, :contents)
+    params.require(:topic).permit(:title, :thumbnail, {image: []}, :contents)
   end
   
 end

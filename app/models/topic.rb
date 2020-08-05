@@ -1,4 +1,7 @@
 class Topic < ApplicationRecord
+  
+  default_scope -> { order(created_at: :desc) }
+  
   validates :title, presence: true
   validates :contents, presence: true
   validates :user_id, presence: true

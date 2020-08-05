@@ -46,7 +46,7 @@
               <% end %>
             </li>
             <li>
-              <%= current_user.name %>
+              <%= link_to current_user.name, user_path(id: current_user.id) %>
             </li>
           <% else %>
             <li>

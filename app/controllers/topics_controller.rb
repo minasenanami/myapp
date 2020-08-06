@@ -27,6 +27,28 @@ class TopicsController < ApplicationController
     @topic = Topic.find_by(params[:id])
   end
   
+  def edit
+    @topic = Topic.find_by(params[:id])
+  end
+  
+  def update
+    @topic = Topic.find_by(params[:id])
+    if @topic.update_attributes(topic_params)
+      redirect_to topic_path, success: '編集が完了しました'
+    else
+      flash.now[:danger] = "編集の保存に失敗しました"
+      rednder :edit
+    end
+  end
+  
+  def destroy
+    topic = Topic.find_by(params[:id])
+    if topic.user_id == current_user.id
+      topic.destroy
+      redirect_to root_path, success: '投稿を削除しました'
+    end
+  end
+  
   private
   def topic_params
     params.require(:topic).permit(:title, :thumbnail, {image: []}, :contents)

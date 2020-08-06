@@ -1,8 +1,26 @@
-<%= @topic.title %>
-<% if @topic.image? %>
-  <div class="images">
-   <% @topic.image.each do |image| %>
-    <%= image_tag(image.url) %>
-   <% end %> 
+<div class="main-topics-show">
+  <div class="container">
+    <div class="topics-show-item">
+      <p>
+        <%= @topic.title %>
+      </p>
+      <p>
+        <%= @topic.contents %>
+      </p>
+      
+      
+      <% if @topic.image? %>
+        <div class="images">
+         <% @topic.image.each do |image| %>
+          <%= image_tag(image.url) %>
+         <% end %> 
+        </div>
+      <% end %>
+      <%= link_to "編集", edit_topic_path %>
+      <%= link_to "削除", topic_path, method: :delete %>
+      <div class="topic-time">
+        <%= @topic.created_at %>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>

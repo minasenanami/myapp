@@ -81,7 +81,7 @@ h1, h2 {
 .navbar-transparent {
   height: 100px;
   margin-bottom: 0px;
-  background-color: rgba(0,112,74,1);
+  background-color: rgba(0,112,74,0.2);
   a {
     color: #fff !important;
   }
@@ -161,7 +161,7 @@ h1, h2 {
     img {
       margin-top: 10px;
       margin-bottom: 20px;
-      width: 100%;
+      width: 50%;
     }
 
     .topic-index-icon {
@@ -189,4 +189,20 @@ h1, h2 {
   width: 558px;
   height: 200px;
   font-size: 25px;
+}
+
+// 投稿詳細画面 ※大きすぎるので暫定処理
+.images {
+  img {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      width: 50%;
+    }
+}
+
+
+//編集画面
+
+ p {
+  white-space: pre-wrap;
 }

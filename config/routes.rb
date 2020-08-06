@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'pages#index'
   
   get '/search', to: 'topics#search'
+
+  
   
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

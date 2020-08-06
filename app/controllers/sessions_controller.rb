@@ -18,6 +18,14 @@ class SessionsController < ApplicationController
     redirect_to root_url, info: 'ログアウトしました'
   end
   
+  def guest
+    user=User.find_by(id:5)
+    session[:user_id] = user.id
+    flash[:success] = "テストユーザとしてログインしました。"
+    redirect_to root_path
+  end
+  
+  
   private
   
   def log_in(user)

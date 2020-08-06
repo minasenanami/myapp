@@ -16,8 +16,11 @@
          <% end %> 
         </div>
       <% end %>
-      <%= link_to "編集", edit_topic_path %>
-      <%= link_to "削除", topic_path, method: :delete %>
+      
+      <% if @topic.user_id == current_user.id %>
+        <%= link_to "編集", edit_topic_path %>
+        <%= link_to "削除", topic_path, method: :delete %>
+      <% end %>
       <div class="topic-time">
         <%= @topic.created_at %>
       </div>

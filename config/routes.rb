@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root 'pages#index'
   
   get '/search', to: 'topics#search'
+  
+  # ゲストログイン用
+  post '/guest_login', to: 'sessions#guest'
+
 
   
   

@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
-  # before_action :ensure_correct_user,{only:[:edit, :update, :destroy]}
+  before_action :authenticate_user, {only: [:new, :show]}
+  before_action :ensure_correct_user,{only:[:edit, :update, :destroy]}
   
   def index
     @topics = Topic.all.includes(:favorite_users)
@@ -51,13 +52,13 @@ class TopicsController < ApplicationController
     end
   end
   
-  # def ensure_correct_user
-  #   @topic = Topic.find_by(id: params[:id])
-  #   if @topic.user_id != @current_user.id
-  #     flash.now[:danger] = "権限がありません"
-  #     redirect_to root_path
-  #   end
-  # end
+  def ensure_correct_user
+    @topic = Topic.find_by(id: params[:id])
+    if @topic.user_id != @current_user.id
+      flash.now[:danger] = '権限がありません'
+      redirect_to root_path
+    end
+  end
   
   private
   def topic_params

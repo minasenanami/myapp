@@ -21,8 +21,9 @@
         <%= link_to "編集", edit_topic_path %>
         <%= link_to "削除", topic_path, method: :delete %>
       <% end %>
+      
       <div class="topic-time">
-        <%= @topic.created_at %>
+        <%= l @topic.created_at, format: :long %>
       </div>
     </div>
   </div>

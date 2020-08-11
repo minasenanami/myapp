@@ -33,6 +33,12 @@
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li>
+              <%= link_to topics_path do %>
+                <%= image_tag "icons/topic-icon.png" %>
+              <% end %>
+            </li>
+          
+            <li>
               <%= link_to favorites_index_path do %>
                 <%= image_tag "icons/star-white.png" %>
               <% end %>

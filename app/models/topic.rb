@@ -16,4 +16,7 @@ class Topic < ApplicationRecord
       return Topic.all unless search
       Topic.where(['title LIKE ?', "%#{search}%"])
   end
+  
+
+  
 end

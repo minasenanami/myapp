@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   before_action :ensure_correct_user,{only:[:edit, :update, :destroy]}
   
   def index
-    @topics = Topic.all.includes(:favorite_users)
+    @topics = Topic.all.includes(:favorite_users).page(params[:page]).per(3)
   end
   
   def new

@@ -1,13 +1,29 @@
 <!--自分の投稿記事一覧リンク付きで表示-->
 
-投稿一覧
-
-<ul>
-  <% @user.my_topic.each do |topic| %>
-    <li><%= link_to topic.title, topic_path(id: topic.id) %></li>
-    <%= l topic.created_at, format: :long %>
-    最終更新
-    <%= l topic.updated_at, format: :long %>
-  <% end %>
-</ul>
 <!--お気に入りの記事一覧はボタンが有るので不要では無いか？-->
+
+
+<div class="topic-index-wrapper">
+  <div class="container">
+    <% @users.each do |topic| %>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="topic-index-single">
+            <h2 class="topic-title">
+             <%= link_to topic.title, topic_path(id: topic.id) %>
+            </h2>
+            <p class="topic-contents">
+              <%= topic.contents %>
+            </p>
+            <div class="create-data">
+              <%= l topic.created_at, format: :long %>
+              最終更新
+              <%= l topic.updated_at, format: :long %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= paginate(@users) %>
+  </div>
+</div>

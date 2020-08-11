@@ -13,8 +13,4 @@ class User < ApplicationRecord
   has_many :topics
   has_many :favorites
   has_many :favorite_topics, through: :favorites, source: 'topic'
-  
-  def my_topic
-    return Topic.where(user_id: self.id)
-  end
 end

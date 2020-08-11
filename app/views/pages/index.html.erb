@@ -1,9 +1,9 @@
 <div class="top-hero-wrapper text-center">
   <div class="container top-hero-container">
-    <h1 class="text-white">最新の投稿記事</h1>
-    <h2 class="text-white">Pictgram is a service that you can post photos.</h2>
+    <h1 class="text-black">最新の投稿記事</h1>
+    <h2 class="text-black">Pictgram is a service that you can post photos.</h2>
   </div>
   <% @topics.each do |topic| %>
-    <p><%= link_to topic.title, topic_path(id: topic.id) %></p>
+    <h2><%= link_to topic.title, topic_path(id: topic.id) %><h2>
   <% end %>
 </div>

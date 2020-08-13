@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   
   def show
     # @favorite_topics = current_user.favorite_topics.page(params[:page]).per(2)
-    @users = current_user.topics.page(params[:page]).per(6).order(:id)
+    @users = current_user.topics.page(params[:page]).per(2).order(:id)
     @user = User.find_by(id: params[:id])
   end
   

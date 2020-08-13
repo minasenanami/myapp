@@ -1,7 +1,21 @@
-<ul><% @topics.each do |topic| %>
-  <li>
-    <%= link_to topic.title, topic %>
-    <%= l topic.created_at %> 
-  </li>
-  <% end %>
-</ul>
+<div class="topic-index-wrapper">
+  <div class="container">
+    <ul><% @topics.each do |topic| %>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="topic-index-single">
+            <h2 class="topic-title">
+              <%= link_to topic.title, topic %>
+            </h2>
+            <div class="topic-author">
+              <%= link_to topic.user.name%>
+              <!--user_path(id: user.id)-->
+              <%= l topic.created_at %> 
+            </div>
+          </div>
+        </div>
+      </div>
+     <% end %></ul>
+    <%= paginate(@topics) %>
+  </div>
+</div>

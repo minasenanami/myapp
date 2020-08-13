@@ -23,7 +23,7 @@ class TopicsController < ApplicationController
   
   def search
     #Viewのformで取得したパラメータをモデルに渡す
-    @topics = Topic.search(params[:search])
+    @topics = Topic.search(params[:search]).page(params[:page]).per(3)
   end
   
   def show

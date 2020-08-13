@@ -1,12 +1,8 @@
-<div class="main-topics-show">
+<div class="topic-index-wrapper">
   <div class="container">
-    <div class="topics-show-item">
-      <p>
-        <%= @topic.title %>
-      </p>
-      <p>
-        <%= @topic.contents %>
-      </p>
+    <div class="topic-index-single">
+        <h5><%= @topic.title %></h5>
+        <p><%= @topic.contents %></p>
       
       
       <% if @topic.image? %>
@@ -17,14 +13,14 @@
         </div>
       <% end %>
       
+      <div class="topic-time">
+        <%= l @topic.created_at, format: :long %>
+      </div>
       <% if @topic.user_id == current_user.id %>
         <%= link_to "編集", edit_topic_path %>
         <%= link_to "削除", topic_path, method: :delete %>
       <% end %>
       
-      <div class="topic-time">
-        <%= l @topic.created_at, format: :long %>
-      </div>
     </div>
   </div>
 </div>

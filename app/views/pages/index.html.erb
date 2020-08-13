@@ -1,9 +1,28 @@
 <div class="top-hero-wrapper text-center">
   <div class="container top-hero-container">
-    <h1 class="text-black">最新の投稿記事</h1>
-    <h2 class="text-black">Pictgram is a service that you can post photos.</h2>
+    <h1 class="text-white">最新の投稿記事</h1>
+    <h2 class="text-white">Pictgram is a service that you can post photos.</h2>
+    <div class="topic-index-wrapper">
+      <div class="container">
+        <ul><% @topics.each do |topic| %>
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <div class="topic-index-single">
+                <h3 class="topic-title">
+                <%= link_to topic.title, topic_path(id: topic.id) %>
+                </h3>
+                <div class="topic-author">
+                  <%= link_to topic.user.name%>
+                  <!--user_path(id: user.id)-->
+                  <%= l topic.created_at %> 
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %></ul>
+      </div>
+    </div>
   </div>
-  <% @topics.each do |topic| %>
-    <h2><%= link_to topic.title, topic_path(id: topic.id) %><h2>
-  <% end %>
 </div>
+
+
